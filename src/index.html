@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>경기공유예약 서비스</title>
+</head>
+
+<body>
+  <h1>경기공유예약 서비스</h1>
+
+  <table>
+    <thead></thead>
+    <tbody>
+      <tr>
+        <td>
+          <span>아이디</span>
+        </td>
+        <td>
+          <input type="text" />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>비밀번호</span>
+        </td>
+        <td>
+          <input type="text" />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>테니스장 명</span>
+        </td>
+        <td>
+          <input type="text" />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>날짜</span>
+        </td>
+        <td>
+          <input type="text" />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>이용시간</span>
+        </td>
+        <td>
+          <input type="text" />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>행사명</span>
+        </td>
+        <td>
+          <input type="text" />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>인원수</span>
+        </td>
+        <td>
+          <input type="text" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button id="startBtn">시작!!</button>
+</body>
+
+<script>
+  document.getElementById("startBtn").addEventListener("click", function (e) {
+    e.preventDefault();
+    window.reservation.start()
+  })
+
+</script>
+
+</html>
