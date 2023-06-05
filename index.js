@@ -9,8 +9,10 @@ const main = async () => {
   
   const url = "https://share.gg.go.kr/login";
   await window.loadURL(url);
+  
  
   const page = await pie.getPage(browser, window);
+  await page.screenshot({ path: './test.webp' });
   console.log(page);
   // window.destroy();
 };
