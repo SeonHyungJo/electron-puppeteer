@@ -11,81 +11,78 @@
 
   <table>
     <thead></thead>
-    <tbody>
-      <tr>
-        <td>
-          <span>아이디</span>
-        </td>
-        <td>
-          <input type="text" />
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <span>아이디</span>
+      </td>
+      <td>
+        <input type="text" name="id" />
+      </td>
+    </tr>
 
-      <tr>
-        <td>
-          <span>비밀번호</span>
-        </td>
-        <td>
-          <input type="text" />
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <span>비밀번호</span>
+      </td>
+      <td>
+        <input type="text" name="pw" />
+      </td>
+    </tr>
 
-      <tr>
-        <td>
-          <span>테니스장 명</span>
-        </td>
-        <td>
-          <input type="text" />
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <span>테니스장 명</span>
+      </td>
+      <td>
+        <input type="text" name="tennis_court" />
+      </td>
+    </tr>
 
-      <tr>
-        <td>
-          <span>날짜</span>
-        </td>
-        <td>
-          <input type="text" />
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <span>날짜</span>
+      </td>
+      <td>
+        <input type="text" name="date" />
+      </td>
+    </tr>
 
-      <tr>
-        <td>
-          <span>이용시간</span>
-        </td>
-        <td>
-          <input type="text" />
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <span>이용시간</span>
+      </td>
+      <td>
+        <input type="text" name="time" />
+      </td>
+    </tr>
 
-      <tr>
-        <td>
-          <span>행사명</span>
-        </td>
-        <td>
-          <input type="text" />
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <span>행사명</span>
+      </td>
+      <td>
+        <input type="text" name="event_name" />
+      </td>
+    </tr>
 
-      <tr>
-        <td>
-          <span>인원수</span>
-        </td>
-        <td>
-          <input type="text" />
-        </td>
-      </tr>
+    <tr>
+      <td>
+        <span>인원수</span>
+      </td>
+      <td>
+        <input type="text" name="person_count" />
+      </td>
+    </tr>
     </tbody>
   </table>
-
-  <button id="startBtn">시작!!</button>
+  <button id="startBtn" type="sumit">시작!!</button>
 </body>
 
 <script>
   document.getElementById("startBtn").addEventListener("click", function (e) {
     e.preventDefault();
-    window.reservation.start()
+    window.api.send("login");
   })
-
 </script>
 
 </html>
