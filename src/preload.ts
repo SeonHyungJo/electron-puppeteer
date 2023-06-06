@@ -11,13 +11,13 @@ contextBridge.exposeInMainWorld('versions', {
 contextBridge.exposeInMainWorld("api",
   {
     send: (channel: string, data: any) => {
-      const validChannels: string[] = ["login"];
+      const validChannels: string[] = ["login", "save_data"];
       if (validChannels.includes(channel)) {
         ipcRenderer.send(channel, data);
       }
     },
     receive: (channel: string, func: (args: any[]) => void) => {
-      const validChannels: string[] = [];
+      const validChannels: string[] = ["save_data"];
       if (validChannels.includes(channel)) {
         ipcRenderer.on(channel, (event, ...args) => func(...args));
       }

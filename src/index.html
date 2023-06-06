@@ -9,79 +9,107 @@
 <body>
   <h1>경기공유예약 서비스</h1>
 
-  <table>
-    <thead></thead>
-    <tr>
-      <td>
-        <span>아이디</span>
-      </td>
-      <td>
-        <input type="text" name="id" />
-      </td>
-    </tr>
+  <form id="reservation_form">
+    <table>
+      <thead></thead>
+      <tr>
+        <td>
+          <span>아이디</span>
+        </td>
+        <td>
+          <input type="text" name="id" />
+        </td>
+      </tr>
 
-    <tr>
-      <td>
-        <span>비밀번호</span>
-      </td>
-      <td>
-        <input type="text" name="pw" />
-      </td>
-    </tr>
+      <tr>
+        <td>
+          <span>비밀번호</span>
+        </td>
+        <td>
+          <input type="text" name="pw" />
+        </td>
+      </tr>
 
-    <tr>
-      <td>
-        <span>테니스장 명</span>
-      </td>
-      <td>
-        <input type="text" name="tennis_court" />
-      </td>
-    </tr>
+      <tr>
+        <td>
+          <span>테니스장 명</span>
+        </td>
+        <td>
+          <input type="text" name="tennis_court" />
+        </td>
+      </tr>
 
-    <tr>
-      <td>
-        <span>날짜</span>
-      </td>
-      <td>
-        <input type="text" name="date" />
-      </td>
-    </tr>
+      <tr>
+        <td>
+          <span>날짜</span>
+        </td>
+        <td>
+          <input type="text" name="date" />
+        </td>
+      </tr>
 
-    <tr>
-      <td>
-        <span>이용시간</span>
-      </td>
-      <td>
-        <input type="text" name="time" />
-      </td>
-    </tr>
+      <tr>
+        <td>
+          <span>이용시간</span>
+        </td>
+        <td>
+          <input type="text" name="time" />
+        </td>
+      </tr>
 
-    <tr>
-      <td>
-        <span>행사명</span>
-      </td>
-      <td>
-        <input type="text" name="event_name" />
-      </td>
-    </tr>
+      <tr>
+        <td>
+          <span>단체명</span>
+        </td>
+        <td>
+          <input type="text" name="group_name" />
+        </td>
+      </tr>
 
-    <tr>
-      <td>
-        <span>인원수</span>
-      </td>
-      <td>
-        <input type="text" name="person_count" />
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <button id="startBtn" type="sumit">시작!!</button>
+      <tr>
+        <td>
+          <span>행사명</span>
+        </td>
+        <td>
+          <input type="text" name="event_name" />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span>인원수</span>
+        </td>
+        <td>
+          <input type="text" name="person_count" />
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <button id="startBtn" type="sumit">시작!!</button>
+  </form>
 </body>
 
 <script>
+  window.api.receive("save_data", (data) => {
+    console.log(`Received [${data}] from main process`);
+    window.api.send("login");
+  });
+
   document.getElementById("startBtn").addEventListener("click", function (e) {
     e.preventDefault();
-    window.api.send("login");
+    const form = document.getElementById("reservation_form")
+    const formData = {
+      id: form['id'].value,
+      pw: form['pw'].value,
+      tennisCourtName: form['tennis_court'].value,
+      date: form['date'].value,
+      time: form['time'].value,
+      groupName: form['group_name'].value,
+      eventName: form['event_name'].value,
+      personCount: form['person_count'].value
+    }
+
+    window.api.send("save_data", formData)
   })
 </script>
 
